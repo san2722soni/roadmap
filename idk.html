@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Board Study Roadmap</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f0f4f8;
+            --card-background: #ffffff;
+            --text-color: #34495e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            margin: 5px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .tab-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background-color: #2c3e50;
+        }
+
+        .tab-content {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tab-content.active {
+            display: grid;
+        }
+
+        .chapter-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .chapter-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .weightage {
+            color: #27ae60;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .scoring-topics ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .scoring-topics ul li {
+            background-color: #f1f4f8;
+            margin: 5px 0;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 80%;
+                margin: 5px 0;
+            }
+
+            .tab-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                width: 98%;
+                padding: 10px;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .chapter-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Pre-Board Study Roadmap</h1>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="physics">Physics</button>
+            <button class="tab-btn" data-tab="chemistry">Chemistry</button>
+            <button class="tab-btn" data-tab="mathematics">Mathematics</button>
+        </div>
+
+        <div id="physics" class="tab-content active">
+            <!-- Physics chapters will be dynamically inserted here -->
+        </div>
+        <div id="chemistry" class="tab-content">
+            <!-- Chemistry chapters will be dynamically inserted here -->
+        </div>
+        <div id="mathematics" class="tab-content">
+            <!-- Mathematics chapters will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        const subjectData = {
+            physics: [
+                { chapter: 'Electrostatics', weightage: '10-12 marks', scoringTopics: ['Electric Field', 'Potential', 'Gauss Law'] },
+                { chapter: 'Current Electricity', weightage: '12-14 marks', scoringTopics: ['Ohm\'s Law', 'Kirchhoff\'s Laws', 'Resistivity'] },
+                { chapter: 'Magnetic Effects', weightage: '8-10 marks', scoringTopics: ['Magnetic Field', 'Electromagnetic Induction', 'Right-Hand Rule'] },
+                { chapter: 'Electromagnetic Waves', weightage: '6-8 marks', scoringTopics: ['Wave Spectrum', 'Energy Propagation', 'Communication'] },
+                { chapter: 'Optics', weightage: '10-12 marks', scoringTopics: ['Interference', 'Diffraction', 'Polarization'] },
+                { chapter: 'Dual Nature of Radiation', weightage: '8-10 marks', scoringTopics: ['Photoelectric Effect', 'Matter Waves', 'De Broglie'] },
+                { chapter: 'Semiconductor Devices', weightage: '6-8 marks', scoringTopics: ['P-N Junction', 'Diodes', 'Transistors'] },
+                { chapter: 'Communication Systems', weightage: '6-8 marks', scoringTopics: ['Modulation', 'Transmission', 'Signal Processing'] }
+            ],
+            chemistry: [
+                { chapter: 'Solid State', weightage: '10-12 marks', scoringTopics: ['Crystal Structures', 'Unit Cell', 'Packing'] },
+                { chapter: 'Solutions', weightage: '10-12 marks', scoringTopics: ['Concentration', 'Colligative Properties', 'Osmotic Pressure'] },
+                { chapter: 'Electrochemistry', weightage: '10-12 marks', scoringTopics: ['Redox Reactions', 'Electrochemical Cells', 'Nernst Equation'] },
+                { chapter: 'Chemical Kinetics', weightage: '8-10 marks', scoringTopics: ['Reaction Rates', 'Rate Laws', 'Activation Energy'] },
+                { chapter: 'Surface Chemistry', weightage: '6-8 marks', scoringTopics: ['Adsorption', 'Catalysis', 'Colloids'] },
+                { chapter: 'Metallurgy', weightage: '6-8 marks', scoringTopics: ['Extraction', 'Refining', 'Processes'] },
+                { chapter: 'Coordination Compounds', weightage: '8-10 marks', scoringTopics: ['Ligands', 'Bonding', 'Nomenclature'] },
+                { chapter: 'Biomolecules', weightage: '6-8 marks', scoringTopics: ['Proteins', 'Carbohydrates', 'Nucleic Acids'] }
+            ],
+            mathematics: [
+                { chapter: 'Relations and Functions', weightage: '8-10 marks', scoringTopics: ['Function Types', 'Domain', 'Composition'] },
+                { chapter: 'Inverse Trigonometric Functions', weightage: '8-10 marks', scoringTopics: ['Principal Value', 'Domain', 'Graphs'] },
+                { chapter: 'Matrices', weightage: '10-12 marks', scoringTopics: ['Matrix Operations', 'Determinants', 'Transformations'] },
+                { chapter: 'Continuity and Differentiability', weightage: '10-12 marks', scoringTopics: ['Limits', 'Derivatives', 'Function Behavior'] },
+                { chapter: 'Application of Derivatives', weightage: '8-10 marks', scoringTopics: ['Rate of Change', 'Maxima-Minima', 'Optimization'] },
+                { chapter: 'Integrals', weightage: '12-14 marks', scoringTopics: ['Integration', 'Definite Integrals', 'Area'] },
+                { chapter: 'Differential Equations', weightage: '8-10 marks', scoringTopics: ['First-Order Equations', 'Solution Methods'] },
+                { chapter: 'Probability', weightage: '6-8 marks', scoringTopics: ['Conditional Probability', 'Random Variables'] }
+            ]
+        };
+
+        function renderChapters() {
+            Object.keys(subjectData).forEach(subject => {
+                const container = document.getElementById(subject);
+                container.innerHTML = subjectData[subject].map(chapter => `
+                    <div class="chapter-card">
+                        <div class="chapter-title">${chapter.chapter}</div>
+                        <div class="weightage">Weightage: ${chapter.weightage}</div>
+                        <div class="scoring-topics">
+                            <strong>Scoring Topics:</strong>
+                            <ul>
+                                ${chapter.scoringTopics.map(topic => `<li>${topic}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `).join('');
+            });
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Render chapters on page load
+        renderChapters();
+    </script>
+</body>
+</html>
